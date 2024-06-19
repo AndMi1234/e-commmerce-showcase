@@ -1,6 +1,6 @@
 package com.example.ecommerceplatform.controller;
 
-import com.example.ecommerceplatform.ProductCategory;
+import com.example.ecommerceplatform.model.ProductCategory;
 import com.example.ecommerceplatform.model.Product;
 import com.example.ecommerceplatform.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

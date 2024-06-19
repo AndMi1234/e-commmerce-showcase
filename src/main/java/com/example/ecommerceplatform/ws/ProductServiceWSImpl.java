@@ -1,7 +1,8 @@
 package com.example.ecommerceplatform.ws;
 
-import com.example.ecommerceplatform.ProductCategory;
+import com.example.ecommerceplatform.model.ProductCategory;
 import com.example.ecommerceplatform.model.Product;
+import com.example.ecommerceplatform.service.ProductCategoryService;
 import com.example.ecommerceplatform.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ public class ProductServiceWSImpl implements ProductServiceWS {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ProductCategoryService productCategoryService;
 
     @Override
     public String getProductDetails(Long id) {
@@ -30,12 +33,12 @@ public class ProductServiceWSImpl implements ProductServiceWS {
 
     @Override
     public String getAllProductCategories() {
-        ProductCategory[] categories = ProductCategory.values();
+        List<ProductCategory> categories = productCategoryService.findAll();
         return categories != null ? categories.toString() : "No product categories found";
     }
 
-    public String getProductsByCategory(String category) {
-        List<Product> productsInCategory = productService.getProductsByCategory(ProductCategory.valueOf(category));
+    public String getProductsByCategory(ProductCategory category) {
+        List<Product> productsInCategory = productService.getProductsByCategory(category);
         return productsInCategory != null ? productsInCategory.toString() : "No products found";
     }
 }

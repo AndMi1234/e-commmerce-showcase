@@ -1,6 +1,6 @@
 package com.example.ecommerceplatform.model;
 
-import com.example.ecommerceplatform.ProductCategory;
+import com.example.ecommerceplatform.model.ProductCategory;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,7 +13,7 @@ public class Product {
     private String description;
     private double price;
 
-    @Enumerated(EnumType.STRING)
+    @OneToOne
     private ProductCategory category;
 
     public ProductCategory getCategory() {
