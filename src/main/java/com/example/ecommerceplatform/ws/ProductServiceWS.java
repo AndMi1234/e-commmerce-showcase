@@ -10,4 +10,6 @@ public interface ProductServiceWS {
     String getProductDetails(Long id);
     @WebMethod
     public String getAllProducts(Long id);
+    @WebMethod
+    public String getAllProductCategories();
 }
