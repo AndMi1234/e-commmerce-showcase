@@ -37,6 +37,7 @@ public class ProductServiceWSImpl implements ProductServiceWS {
         return categories != null ? categories.toString() : "No product categories found";
     }
 
+    @Override
     public String getProductsByCategory(ProductCategory category) {
         List<Product> productsInCategory = productService.getProductsByCategory(category);
         return productsInCategory != null ? productsInCategory.toString() : "No products found";
