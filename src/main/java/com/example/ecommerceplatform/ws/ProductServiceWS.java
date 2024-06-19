@@ -8,4 +8,6 @@ public interface ProductServiceWS {
 
     @WebMethod
     String getProductDetails(Long id);
+    @WebMethod
+    public String getAllProducts(Long id);
 }
